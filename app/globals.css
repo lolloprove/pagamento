@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night-950: #07060b;
+  --color-night-900: #0d0b14;
+  --color-night-800: #16121f;
+  --color-night-700: #221b31;
+
+  --color-neon-fuchsia: #e879f9;
+  --color-neon-purple: #a855f7;
+  --color-neon-cyan: #22d3ee;
+  --color-neon-amber: #fbbf24;
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-display: var(--font-unbounded), var(--font-geist-sans), sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-marquee: marquee 22s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-night-950);
+  color: #f4f2f8;
+  font-family: var(--font-sans);
+}
+
+/* Sfondo "nightlife": bagliori al neon fissi dietro tutto il contenuto */
+.bg-party {
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(168, 85, 247, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(34, 211, 238, 0.14), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(232, 121, 249, 0.12), transparent 70%);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-neon-fuchsia),
+    var(--color-neon-purple) 45%,
+    var(--color-neon-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bordo tratteggiato "a strappo" per il biglietto */
+.ticket-divider {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 50%, transparent 50%);
+  background-size: 14px 1px;
+  background-repeat: repeat-x;
+}
