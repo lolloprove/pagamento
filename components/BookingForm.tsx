@@ -111,6 +111,8 @@ export default function BookingForm() {
             <span className="sr-only">Nome</span>
             <User className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/40" />
             <input
+              id="firstName"
+              name="firstName"
               type="text"
               required
               autoComplete="given-name"
@@ -125,6 +127,8 @@ export default function BookingForm() {
             <span className="sr-only">Cognome</span>
             <User className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/40" />
             <input
+              id="lastName"
+              name="lastName"
               type="text"
               required
               autoComplete="family-name"
@@ -141,6 +145,8 @@ export default function BookingForm() {
           <span className="sr-only">Email</span>
           <Mail className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/40" />
           <input
+            id="email"
+            name="email"
             type="email"
             required
             autoComplete="email"
