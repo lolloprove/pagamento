@@ -47,7 +47,7 @@ export default function Countdown({ targetISO }: { targetISO: string }) {
 
   if (mounted && timeLeft === null) {
     return (
-      <p className="mt-10 font-display text-xl font-bold uppercase text-neon-fuchsia">
+      <p className="mt-10 font-display text-xl font-bold uppercase text-neon-pink glow-text">
         Il festino è iniziato!
       </p>
     );

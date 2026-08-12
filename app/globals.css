@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-night-950: #07060b;
-  --color-night-900: #0d0b14;
-  --color-night-800: #16121f;
-  --color-night-700: #221b31;
+  /* Palette "Neon Nightclub / Cyberpunk" su base zinc-950/nero */
+  --color-night-950: #09090b; /* zinc-950 */
+  --color-night-900: #101014;
+  --color-night-800: #17171c;
 
-  --color-neon-fuchsia: #e879f9;
-  --color-neon-purple: #a855f7;
-  --color-neon-cyan: #22d3ee;
-  --color-neon-amber: #fbbf24;
+  --color-neon-violet: #b026ff; /* viola acido */
+  --color-neon-pink: #ff2d9b; /* rosa neon */
+  --color-neon-green: #39ff14; /* verde neon */
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
@@ -18,6 +17,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
   --animate-marquee: marquee 22s linear infinite;
+  --animate-flicker: flicker 4s linear infinite;
 
   @keyframes float {
     0%,
@@ -47,6 +47,21 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Sfarfallio da insegna al neon */
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    64%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    63% {
+      opacity: 0.65;
+    }
+  }
 }
 
 :root {
@@ -59,27 +74,57 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Sfondo "nightlife": bagliori al neon fissi dietro tutto il contenuto */
+/* Sfondo nightclub: griglia cyberpunk + bagliori al neon */
 .bg-party {
   background-image:
-    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(168, 85, 247, 0.22), transparent 70%),
-    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(34, 211, 238, 0.14), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(232, 121, 249, 0.12), transparent 70%);
+    linear-gradient(rgba(176, 38, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 38, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(176, 38, 255, 0.2), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(255, 45, 155, 0.14), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(57, 255, 20, 0.07), transparent 70%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
 }
 
 .text-gradient {
   background: linear-gradient(
     100deg,
-    var(--color-neon-fuchsia),
-    var(--color-neon-purple) 45%,
-    var(--color-neon-cyan)
+    var(--color-neon-pink),
+    var(--color-neon-violet) 55%,
+    var(--color-neon-green)
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Bordo tratteggiato "a strappo" per il biglietto */
+/* Alone al neon per i titoli */
+.glow-text {
+  text-shadow:
+    0 0 18px rgba(255, 45, 155, 0.55),
+    0 0 45px rgba(176, 38, 255, 0.4);
+}
+
+/* Card "vetro" con bordo sottile sfumato al neon */
+.neon-card {
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(rgba(16, 16, 20, 0.72), rgba(16, 16, 20, 0.72)) padding-box,
+    linear-gradient(
+        135deg,
+        rgba(176, 38, 255, 0.55),
+        rgba(255, 45, 155, 0.35) 50%,
+        rgba(57, 255, 20, 0.3)
+      )
+      border-box;
+}
+
+/* Bordo tratteggiato "a strappo" per il pass */
 .ticket-divider {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 50%, transparent 50%);
   background-size: 14px 1px;

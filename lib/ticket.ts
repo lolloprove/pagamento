@@ -1,21 +1,23 @@
-import { createHash } from "crypto";
-
 /**
- * Genera un ID biglietto univoco e deterministico a partire dall'ID
- * della sessione Stripe Checkout: ricaricando la pagina di successo
- * l'utente vede sempre lo stesso pass.
+ * Codice breve leggibile della prevendita, derivato dall'UUID della riga
+ * su Supabase (primo blocco, 8 caratteri): es. "A1B2C3D4".
  */
-export function ticketIdFromSession(sessionId: string): string {
-  const digest = createHash("sha256").update(sessionId).digest("hex").toUpperCase();
-  return `FST-${digest.slice(0, 4)}-${digest.slice(4, 8)}-${digest.slice(8, 12)}`;
+export function codicePrevendita(prevenditaId: string): string {
+  return prevenditaId.split("-")[0].toUpperCase();
 }
 
 /** Payload codificato nel QR code, verificabile all'ingresso. */
-export function qrPayload(params: { ticketId: string; fullName: string; email: string }): string {
+export function qrPayload(params: {
+  prevenditaId: string;
+  codice: string;
+  nome: string;
+  email: string;
+}): string {
   return JSON.stringify({
     event: "festino-a-casa-di-luca",
-    ticketId: params.ticketId,
-    name: params.fullName,
+    prevenditaId: params.prevenditaId,
+    codice: params.codice,
+    nome: params.nome,
     email: params.email,
   });
 }

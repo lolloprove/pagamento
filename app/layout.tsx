@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Unbounded } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 import { EVENT } from "@/lib/event";
 
 const geistSans = Geist({
@@ -20,10 +21,10 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: `${EVENT.name} — ${EVENT.dateLabel}`,
-  description: `${EVENT.tagline} Biglietti a ${EVENT.priceLabel}: prenota il tuo posto, l'indirizzo si sblocca dopo l'acquisto.`,
+  title: `Prevendita ${EVENT.name} — ${EVENT.dateLabel}`,
+  description: `${EVENT.tagline} Prevendite a ${EVENT.priceLabel}: assicurati il posto, l'indirizzo si sblocca dopo l'acquisto.`,
   openGraph: {
-    title: EVENT.name,
+    title: `Prevendita ${EVENT.name}`,
     description: EVENT.tagline,
     type: "website",
   },
@@ -35,7 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="it"
       className={`${geistSans.variable} ${geistMono.variable} ${unbounded.variable} h-full antialiased`}
     >
-      <body className="bg-party min-h-full flex flex-col">{children}</body>
+      <body className="bg-party min-h-full flex flex-col">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
