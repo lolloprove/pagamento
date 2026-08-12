@@ -39,7 +39,7 @@ cp .env.example .env.local
 | `PAYPAL_CLIENT_SECRET` | ✅ | Secret dell'app PayPal (solo server) |
 | `PAYPAL_ENV` | ⚪ | `sandbox` (default) o `live` |
 | `SUPABASE_URL` | ✅ | URL del progetto Supabase |
-| `SUPABASE_SERVICE_ROLE_KEY` | ✅ | Service role key (solo server) |
+| `SUPABASE_SERVICE_ROLE_KEY` | ✅ | Secret key `sb_secret_...` o legacy `service_role` (solo server; **non** la publishable) |
 | `ADMIN_API_KEY` | ✅ | Chiave per la rotta admin |
 | `PARTY_SECRET_ADDRESS` | ⚪ | Indirizzo esatto, mostrato solo dopo il pagamento |
 
