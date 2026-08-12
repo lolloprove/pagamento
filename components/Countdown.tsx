@@ -54,16 +54,16 @@ export default function Countdown({ targetISO }: { targetISO: string }) {
   }
 
   return (
-    <div className="mt-9 flex justify-start gap-2 sm:gap-3">
+    <div className="mx-auto mt-12 flex max-w-xl justify-center divide-x divide-neon-pink/20">
       {units.map(({ label, value }) => (
         <div
           key={label}
-          className="w-18 border border-neon-violet/25 bg-black/40 px-2 py-3 transition hover:border-neon-pink sm:w-22"
+          className="w-20 px-3 py-2 sm:w-28 sm:px-5"
         >
-          <div className="font-display text-2xl font-black tabular-nums text-neon-violet sm:text-3xl">
+          <div className="font-display text-3xl font-medium tabular-nums text-neon-violet sm:text-4xl">
             {value !== undefined ? String(value).padStart(2, "0") : "--"}
           </div>
-          <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-neon-green">
+          <div className="mt-2 text-[9px] uppercase tracking-[0.22em] text-neon-violet/35">
             {label}
           </div>
         </div>

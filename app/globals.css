@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette poster underground: nero inchiostro, avorio, rosso e giallo acido */
-  --color-night-950: #0a0a09;
-  --color-night-900: #11110f;
-  --color-night-800: #181815;
+  /* Palette luxury minimale: nero profondo, avorio e champagne. */
+  --color-night-950: #080808;
+  --color-night-900: #0d0d0d;
+  --color-night-800: #141414;
 
-  --color-neon-violet: #f0e9da;
-  --color-neon-pink: #ff3b30;
-  --color-neon-green: #d9ff43;
+  --color-neon-violet: #f4f0e8;
+  --color-neon-pink: #c8aa72;
+  --color-neon-green: #d8c395;
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
-  --font-display: var(--font-unbounded), var(--font-geist-sans), sans-serif;
+  --font-display: var(--font-bodoni), Georgia, serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
@@ -102,46 +102,36 @@ body {
   color: #050507;
 }
 
-/* Carta stampata scura: trama tipografica, niente più griglia cyberpunk. */
+/* Fondo nero con un solo, impercettibile alone champagne. */
 .bg-party {
   position: relative;
   isolation: isolate;
-  background-image:
-    radial-gradient(circle at 82% 2%, rgba(255, 59, 48, 0.19), transparent 28rem),
-    linear-gradient(115deg, transparent 0 70%, rgba(217, 255, 67, 0.035) 70% 71%, transparent 71%);
+  background-image: radial-gradient(circle at 50% 35%, rgba(200, 170, 114, 0.055), transparent 28rem);
   background-size: 100% 100%;
 }
 
 .bg-party::before {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+  display: none;
 }
 
 .text-gradient {
-  background: linear-gradient(100deg, var(--color-neon-pink), #ff735c);
+  background: linear-gradient(100deg, #f4f0e8, #c8aa72);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Titoli da flyer stampato: ombra offset netta, non glow digitale. */
+/* Niente glow: contrasto, spaziatura e proporzioni creano la gerarchia. */
 .glow-text {
-  text-shadow: 4px 4px 0 rgba(255, 59, 48, 0.22);
+  text-shadow: none;
 }
 
-/* Card editoriali: bordi netti e ombra offset da serigrafia. */
+/* Pannelli luxury: vetro nero, bordo champagne sottilissimo. */
 .neon-card {
-  border: 1px solid rgba(240, 233, 218, 0.25);
-  border-radius: 0;
-  background: rgba(17, 17, 15, 0.92);
-  box-shadow:
-    8px 8px 0 rgba(255, 59, 48, 0.14),
-    0 28px 80px rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(200, 170, 114, 0.28);
+  border-radius: 2px;
+  background: rgba(13, 13, 13, 0.96);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.52);
 }
 
 .cyber-frame {
@@ -150,7 +140,7 @@ body {
 
 .outline-text {
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-neon-violet);
+  -webkit-text-stroke: 1px var(--color-neon-violet);
   text-shadow: none;
 }
 
@@ -169,7 +159,7 @@ body {
   height: 260%;
   content: "";
   transform: rotate(24deg);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   filter: blur(8px);
   transition: left 550ms ease;
 }

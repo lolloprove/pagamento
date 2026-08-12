@@ -1,10 +1,10 @@
 # 🎉 Prevendita Festino a casa di Luca
 
-Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Stile flyer underground/editoriale, dark mode di default.
+Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Landing minimale luxury in nero, avorio e champagne.
 
 ## Funzionalità
 
-- **Landing page** (`/`) — hero con badge "Prevendite limitate disponibili", countdown live, box dettagli (data, ora, prezzo 10€), form (nome, cognome, email) e checkout PayPal integrato con CTA "Acquista Prevendita — 10€". L'indirizzo esatto è **nascosto**: prima dell'acquisto si vede solo la zona.
+- **Landing page** (`/`) — solo titolo, countdown live e CTA. Il form (nome, cognome, email) e il checkout PayPal compaiono in un modal dopo il click su "Acquista".
 - **`POST /api/paypal/create-order`** — crea un ordine PayPal a importo fisso di 10,00 EUR.
 - **`POST /api/paypal/capture-order`** — cattura il pagamento dopo l'approvazione dell'utente, verifica importo e valuta, salva `nome`, `email` e `paypal_order_id` nella tabella `prevendite` su Supabase (idempotente sull'ordine) e restituisce l'URL di redirect a `/success?id=<uuid>`.
 - **Pagina di conferma** (`/success?id=...`) — carica la prevendita da Supabase, verifica `status = 'paid'` e mostra la **Prevendita Ufficiale #ID** con QR code (`qrcode.react`), indirizzo esatto e istruzioni per l'ingresso.
@@ -66,7 +66,7 @@ curl -H "Authorization: Bearer $ADMIN_API_KEY" https://tuo-dominio/api/admin/pre
 ```
 app/
   layout.tsx                      # Layout root: font, metadata, footer globale
-  globals.css                     # Tema Tailwind v4 da flyer underground (avorio/rosso/acido)
+  globals.css                     # Tema Tailwind v4 minimal luxury (nero/avorio/champagne)
   page.tsx                        # Landing page
   success/page.tsx                # Conferma: prevendita da Supabase + pass con QR
   api/paypal/create-order/route.ts  # Creazione ordine PayPal (10 EUR)
