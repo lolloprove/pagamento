@@ -1,4 +1,4 @@
-import { HelpCircle } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 const FAQS = [
   {
@@ -25,21 +25,29 @@ const FAQS = [
 
 export default function Faq() {
   return (
-    <section className="mx-auto w-full max-w-3xl px-6 py-16">
-      <h2 className="flex items-center justify-center gap-2 font-display text-2xl font-bold uppercase text-white glow-text">
-        <HelpCircle className="size-6 text-neon-green" />
-        Domande frequenti
-      </h2>
+    <section className="mx-auto w-full max-w-5xl px-6 py-24">
+      <div className="text-center">
+        <p className="section-kicker font-mono text-[10px] uppercase tracking-[0.25em] text-neon-violet">
+          03 // Prima di entrare
+        </p>
+        <h2 className="mt-4 font-display text-4xl font-black uppercase text-white glow-text">
+          Zero dubbi. <span className="outline-text">Solo bassi.</span>
+        </h2>
+      </div>
       <div className="mt-8 space-y-3">
-        {FAQS.map(({ q, a }) => (
+        {FAQS.map(({ q, a }, index) => (
           <details
             key={q}
-            className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition open:border-neon-violet/40"
+            className="group border-b border-white/10 bg-black/15 backdrop-blur-md transition open:border-neon-violet/50 open:bg-neon-violet/5"
           >
-            <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-white marker:hidden">
-              {q}
+            <summary className="flex cursor-pointer list-none items-center gap-4 px-3 py-5 font-semibold text-white marker:hidden">
+              <span className="font-mono text-[10px] text-neon-green/60">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="flex-1">{q}</span>
+              <ArrowDown className="size-4 text-white/35 transition duration-300 group-open:rotate-180 group-open:text-neon-pink" />
             </summary>
-            <p className="px-5 pb-4 text-sm leading-relaxed text-white/70">{a}</p>
+            <p className="max-w-2xl px-12 pb-5 text-sm leading-relaxed text-white/60">{a}</p>
           </details>
         ))}
       </div>

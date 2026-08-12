@@ -16,7 +16,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 
 const inputClasses =
-  "w-full rounded-xl border border-white/10 bg-night-900/80 py-3 pl-11 pr-4 text-white placeholder:text-white/30 outline-none transition focus:border-neon-violet focus:ring-2 focus:ring-neon-violet/40 disabled:opacity-50";
+  "w-full border border-white/10 bg-black/35 py-4 pl-11 pr-4 font-mono text-sm text-white placeholder:text-white/25 outline-none transition focus:border-neon-violet focus:bg-neon-violet/5 focus:ring-2 focus:ring-neon-violet/20 disabled:opacity-50";
 
 export default function BookingForm() {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
@@ -83,11 +83,25 @@ export default function BookingForm() {
   }
 
   return (
-    <div className="neon-card p-6 shadow-2xl shadow-neon-violet/10 backdrop-blur-md sm:p-8">
-      <h3 className="font-display text-xl font-bold uppercase text-white">
-        Acquista la tua prevendita
+    <div className="cyber-frame neon-card relative overflow-hidden p-6 shadow-2xl shadow-neon-violet/20 backdrop-blur-md sm:p-9">
+      <div
+        aria-hidden
+        className="absolute -right-24 -top-24 size-56 rounded-full bg-neon-violet/15 blur-3xl"
+      />
+      <div className="relative flex items-center justify-between border-b border-white/10 pb-5">
+        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-green">
+          <span className="size-1.5 rounded-full bg-neon-green shadow-[0_0_10px_#39ff14] animate-pulse" />
+          Checkout online
+        </div>
+        <span className="font-mono text-[10px] text-white/25">
+          STEP {step === "dati" ? "01" : "02"} / 02
+        </span>
+      </div>
+
+      <h3 className="relative mt-7 font-display text-2xl font-black uppercase leading-none text-white">
+        Blocca il tuo <span className="text-gradient">accesso</span>
       </h3>
-      <p className="mt-1 text-sm text-white/60">
+      <p className="relative mt-2 text-sm leading-relaxed text-white/55">
         Compila i dati, paga {EVENT.priceLabel} con PayPal e ricevi subito il pass con l&apos;indirizzo.
       </p>
 
@@ -147,7 +161,7 @@ export default function BookingForm() {
         {step === "dati" && (
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-neon-pink to-neon-violet px-6 py-4 font-display text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-neon-violet/50 transition hover:brightness-110"
+            className="neon-button flex w-full items-center justify-center gap-2 bg-linear-to-r from-neon-pink to-neon-violet px-6 py-4 font-display text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-neon-violet/50 transition hover:-translate-y-0.5 hover:shadow-neon-pink/40"
           >
             <Zap className="size-4" />
             Acquista Prevendita — {EVENT.priceLabel}
@@ -181,7 +195,7 @@ export default function BookingForm() {
           )}
 
           {PAYPAL_CLIENT_ID ? (
-            <div className="rounded-2xl bg-white/95 p-4">
+            <div className="border border-white/10 bg-white/95 p-4 shadow-[0_0_50px_rgba(255,255,255,0.08)]">
               <PayPalScriptProvider
                 options={{
                   clientId: PAYPAL_CLIENT_ID,
@@ -211,7 +225,7 @@ export default function BookingForm() {
         </div>
       )}
 
-      <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-white/40">
+      <p className="mt-5 flex items-center justify-center gap-1.5 font-mono text-[9px] uppercase tracking-wider text-white/35">
         <Lock className="size-3.5" />
         Pagamento sicuro gestito da PayPal — nessun dato della carta passa da noi
       </p>
