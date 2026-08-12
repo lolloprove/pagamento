@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette "Neon Nightclub / Cyberpunk" su base zinc-950/nero */
-  --color-night-950: #09090b; /* zinc-950 */
-  --color-night-900: #101014;
-  --color-night-800: #17171c;
+  /* Palette poster underground: nero inchiostro, avorio, rosso e giallo acido */
+  --color-night-950: #0a0a09;
+  --color-night-900: #11110f;
+  --color-night-800: #181815;
 
-  --color-neon-violet: #b026ff; /* viola acido */
-  --color-neon-pink: #ff2d9b; /* rosa neon */
-  --color-neon-green: #39ff14; /* verde neon */
+  --color-neon-violet: #f0e9da;
+  --color-neon-pink: #ff3b30;
+  --color-neon-green: #d9ff43;
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
@@ -102,22 +102,14 @@ body {
   color: #050507;
 }
 
-/* Sfondo nightclub: griglia cyberpunk + bagliori al neon */
+/* Carta stampata scura: trama tipografica, niente più griglia cyberpunk. */
 .bg-party {
   position: relative;
   isolation: isolate;
   background-image:
-    linear-gradient(rgba(176, 38, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(176, 38, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(176, 38, 255, 0.2), transparent 70%),
-    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(255, 45, 155, 0.14), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(57, 255, 20, 0.07), transparent 70%);
-  background-size:
-    48px 48px,
-    48px 48px,
-    100% 100%,
-    100% 100%,
-    100% 100%;
+    radial-gradient(circle at 82% 2%, rgba(255, 59, 48, 0.19), transparent 28rem),
+    linear-gradient(115deg, transparent 0 70%, rgba(217, 255, 67, 0.035) 70% 71%, transparent 71%);
+  background-size: 100% 100%;
 }
 
 .bg-party::before {
@@ -130,66 +122,36 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
-.bg-party::after {
-  position: fixed;
-  z-index: 50;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  opacity: 0.025;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 3px,
-    rgba(255, 255, 255, 0.45) 4px
-  );
-}
-
 .text-gradient {
-  background: linear-gradient(
-    100deg,
-    var(--color-neon-pink),
-    var(--color-neon-violet) 55%,
-    var(--color-neon-green)
-  );
+  background: linear-gradient(100deg, var(--color-neon-pink), #ff735c);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Alone al neon per i titoli */
+/* Titoli da flyer stampato: ombra offset netta, non glow digitale. */
 .glow-text {
-  text-shadow:
-    0 0 18px rgba(255, 45, 155, 0.55),
-    0 0 45px rgba(176, 38, 255, 0.4);
+  text-shadow: 4px 4px 0 rgba(255, 59, 48, 0.22);
 }
 
-/* Card "vetro" con bordo sottile sfumato al neon */
+/* Card editoriali: bordi netti e ombra offset da serigrafia. */
 .neon-card {
-  border: 1px solid transparent;
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(rgba(16, 16, 20, 0.72), rgba(16, 16, 20, 0.72)) padding-box,
-    linear-gradient(
-        135deg,
-        rgba(176, 38, 255, 0.55),
-        rgba(255, 45, 155, 0.35) 50%,
-        rgba(57, 255, 20, 0.3)
-      )
-      border-box;
+  border: 1px solid rgba(240, 233, 218, 0.25);
+  border-radius: 0;
+  background: rgba(17, 17, 15, 0.92);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 24px 80px rgba(0, 0, 0, 0.25);
+    8px 8px 0 rgba(255, 59, 48, 0.14),
+    0 28px 80px rgba(0, 0, 0, 0.32);
 }
 
 .cyber-frame {
-  clip-path: polygon(0 18px, 18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+  clip-path: none;
 }
 
 .outline-text {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.72);
-  text-shadow: 0 0 35px rgba(176, 38, 255, 0.35);
+  -webkit-text-stroke: 1.5px var(--color-neon-violet);
+  text-shadow: none;
 }
 
 .neon-button {
@@ -207,7 +169,7 @@ body {
   height: 260%;
   content: "";
   transform: rotate(24deg);
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.5);
   filter: blur(8px);
   transition: left 550ms ease;
 }
@@ -218,11 +180,11 @@ body {
 
 .vinyl {
   background:
-    radial-gradient(circle at center, var(--color-neon-pink) 0 6%, #050507 6.5% 11%, transparent 11.5%),
+    radial-gradient(circle at center, var(--color-neon-green) 0 6%, #050507 6.5% 11%, transparent 11.5%),
     repeating-radial-gradient(circle at center, #131318 0 3px, #08080b 4px 7px);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 0 60px rgba(176, 38, 255, 0.28);
+    12px 12px 0 rgba(255, 59, 48, 0.2);
 }
 
 .section-kicker::before {

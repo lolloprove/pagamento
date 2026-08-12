@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "Fino a che ora si può entrare?",
-    a: "Le porte restano aperte dalle 22:00 all'01:00. Dopo, si entra solo se Luca è di buon umore (spoiler: non lo è mai dopo l'una).",
+    a: "Le porte restano aperte dalle 23:00 all'01:30. Dopo, si entra solo se Luca è di buon umore (spoiler: non lo è mai dopo l'una).",
   },
 ] as const;
 

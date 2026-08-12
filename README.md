@@ -1,6 +1,6 @@
 # 🎉 Prevendita Festino a casa di Luca
 
-Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Stile "Neon Nightclub / Cyberpunk", dark mode di default.
+Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Stile flyer underground/editoriale, dark mode di default.
 
 ## Funzionalità
 
@@ -66,7 +66,7 @@ curl -H "Authorization: Bearer $ADMIN_API_KEY" https://tuo-dominio/api/admin/pre
 ```
 app/
   layout.tsx                      # Layout root: font, metadata, footer globale
-  globals.css                     # Tema Tailwind v4 cyberpunk (neon viola/rosa/verde)
+  globals.css                     # Tema Tailwind v4 da flyer underground (avorio/rosso/acido)
   page.tsx                        # Landing page
   success/page.tsx                # Conferma: prevendita da Supabase + pass con QR
   api/paypal/create-order/route.ts  # Creazione ordine PayPal (10 EUR)

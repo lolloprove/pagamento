@@ -6,9 +6,9 @@
 export const EVENT = {
   name: "Festino a casa di Luca",
   tagline: "Una notte. Una casa. Zero regole (quasi).",
-  dateISO: "2026-09-19T22:00:00+02:00",
-  dateLabel: "Sabato 19 Settembre 2026",
-  timeLabel: "Dalle 22:00 fino a tardi",
+  dateISO: "2026-08-13T23:00:00+02:00",
+  dateLabel: "Giovedì 13 Agosto 2026",
+  timeLabel: "Dalle 23:00 fino a tardi",
   priceCents: 1000,
   priceLabel: "10€",
   currency: "eur" as const,
