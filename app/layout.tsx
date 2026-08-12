@@ -22,10 +22,10 @@ const bodoni = Bodoni_Moda({
 
 export const metadata: Metadata = {
   title: `Prevendita ${EVENT.name} — ${EVENT.dateLabel}`,
-  description: `${EVENT.tagline} Prevendite a ${EVENT.priceLabel}: assicurati il posto, l'indirizzo si sblocca dopo l'acquisto.`,
+  description: `${EVENT.name} · ${EVENT.dateLabel} · ${EVENT.timeLabel}. Prevendita ${EVENT.priceLabel}.`,
   openGraph: {
     title: `Prevendita ${EVENT.name}`,
-    description: EVENT.tagline,
+    description: `${EVENT.dateLabel} · ${EVENT.timeLabel}`,
     type: "website",
   },
 };
