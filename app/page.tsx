@@ -15,7 +15,8 @@ function MarqueeStrip() {
             key={`${item}-${i}`}
             className="whitespace-nowrap font-display text-xs font-black uppercase tracking-[0.18em]"
           >
-            /// {item}
+            <span aria-hidden>{"/// "}</span>
+            {item}
           </span>
         ))}
       </div>
