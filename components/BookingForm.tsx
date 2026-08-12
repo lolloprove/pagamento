@@ -16,7 +16,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 
 const inputClasses =
-  "w-full border-b border-white/15 bg-transparent py-4 pl-9 pr-3 text-sm text-white placeholder:text-white/25 outline-none transition focus:border-neon-pink disabled:opacity-50";
+  "w-full border-b border-neon-violet/15 bg-transparent py-4 pl-9 pr-3 text-sm text-neon-violet placeholder:text-neon-violet/25 outline-none transition focus:border-neon-pink disabled:opacity-50";
 
 export default function BookingForm() {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
@@ -153,7 +153,7 @@ export default function BookingForm() {
         {step === "dati" && (
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 border border-neon-pink bg-neon-pink px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-transparent hover:text-neon-pink"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-neon-pink bg-neon-pink px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-[0_6px_0_#9b321f] transition hover:-translate-y-0.5 hover:shadow-[0_8px_0_#9b321f]"
           >
             <Zap className="size-4" />
             Acquista Prevendita — {EVENT.priceLabel}

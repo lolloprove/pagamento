@@ -26,7 +26,7 @@ export default function PurchaseModal() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group mt-10 border border-neon-pink bg-neon-pink px-10 py-4 text-xs font-semibold uppercase tracking-[0.24em] text-black transition duration-300 hover:bg-transparent hover:text-neon-pink sm:px-14"
+        className="group mt-10 rounded-full border border-neon-pink bg-neon-pink px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-[0_8px_0_#9b321f] transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_0_#9b321f] sm:px-14"
       >
         Acquista — {EVENT.priceLabel}
       </button>
@@ -34,7 +34,7 @@ export default function PurchaseModal() {
       {open && (
         <div
           role="presentation"
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/88 p-4 backdrop-blur-md sm:p-8"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-[#120906]/90 p-4 backdrop-blur-md sm:p-8"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setOpen(false);
           }}
@@ -49,7 +49,7 @@ export default function PurchaseModal() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Chiudi"
-              className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center border border-white/10 text-white/45 transition hover:border-neon-pink hover:text-neon-pink"
+              className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center rounded-full border border-white/10 text-white/45 transition hover:border-neon-pink hover:text-neon-pink"
             >
               <X className="size-4" />
             </button>

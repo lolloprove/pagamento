@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette luxury minimale: nero profondo, avorio e champagne. */
-  --color-night-950: #080808;
-  --color-night-900: #0d0d0d;
-  --color-night-800: #141414;
+  /* Palette seventies: espresso, crema, terracotta, senape e oliva. */
+  --color-night-950: #1d110c;
+  --color-night-900: #281711;
+  --color-night-800: #342018;
 
-  --color-neon-violet: #f4f0e8;
-  --color-neon-pink: #c8aa72;
-  --color-neon-green: #d8c395;
+  --color-neon-violet: #f3dfb8;
+  --color-neon-pink: #ce5937;
+  --color-neon-green: #d5a72f;
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
-  --font-display: var(--font-bodoni), Georgia, serif;
+  --font-display: var(--font-righteous), var(--font-geist-sans), sans-serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
@@ -102,11 +102,13 @@ body {
   color: #050507;
 }
 
-/* Fondo nero con un solo, impercettibile alone champagne. */
+/* Fondo espresso con un caldo alone da pellicola analogica. */
 .bg-party {
   position: relative;
   isolation: isolate;
-  background-image: radial-gradient(circle at 50% 35%, rgba(200, 170, 114, 0.055), transparent 28rem);
+  background-image:
+    radial-gradient(circle at 50% 42%, rgba(206, 89, 55, 0.11), transparent 25rem),
+    linear-gradient(180deg, #21120d 0%, #180e0a 100%);
   background-size: 100% 100%;
 }
 
@@ -115,7 +117,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(100deg, #f4f0e8, #c8aa72);
+  background: linear-gradient(100deg, #f3dfb8, #d5a72f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -126,12 +128,12 @@ body {
   text-shadow: none;
 }
 
-/* Pannelli luxury: vetro nero, bordo champagne sottilissimo. */
+/* Pannelli arrotondati ispirati agli interni modulari anni '70. */
 .neon-card {
-  border: 1px solid rgba(200, 170, 114, 0.28);
-  border-radius: 2px;
-  background: rgba(13, 13, 13, 0.96);
-  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.52);
+  border: 1px solid rgba(243, 223, 184, 0.18);
+  border-radius: 2rem;
+  background: rgba(40, 23, 17, 0.98);
+  box-shadow: 0 32px 100px rgba(10, 5, 3, 0.5);
 }
 
 .cyber-frame {
@@ -142,6 +144,23 @@ body {
   color: transparent;
   -webkit-text-stroke: 1px var(--color-neon-violet);
   text-shadow: none;
+}
+
+/* Cerchi organici in filigrana: richiamo a vinili e poster optical anni '70. */
+.retro-rings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: min(78vw, 780px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(243, 223, 184, 0.07);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 38px rgba(206, 89, 55, 0.035),
+    0 0 0 76px rgba(213, 167, 47, 0.025),
+    0 0 0 114px rgba(101, 112, 60, 0.025);
 }
 
 .neon-button {

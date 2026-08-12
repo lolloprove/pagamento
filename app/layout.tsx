@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Righteous } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { EVENT } from "@/lib/event";
@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
+const righteous = Righteous({
+  variable: "--font-righteous",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "900"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${righteous.variable} h-full antialiased`}
     >
       <body className="bg-party min-h-full flex flex-col">
         {children}

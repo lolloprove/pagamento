@@ -1,6 +1,6 @@
 # 🎉 Prevendita Festino a casa di Luca
 
-Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Landing minimale luxury in nero, avorio e champagne.
+Web app per la vendita delle prevendite di una festa privata, costruita con **Next.js (App Router)**, **Tailwind CSS**, **PayPal Checkout** e **Supabase**. Landing minimale ispirata alla grafica anni '70.
 
 ## Funzionalità
 
@@ -66,7 +66,7 @@ curl -H "Authorization: Bearer $ADMIN_API_KEY" https://tuo-dominio/api/admin/pre
 ```
 app/
   layout.tsx                      # Layout root: font, metadata, footer globale
-  globals.css                     # Tema Tailwind v4 minimal luxury (nero/avorio/champagne)
+  globals.css                     # Tema Tailwind v4 seventies (espresso/crema/terracotta/senape)
   page.tsx                        # Landing page
   success/page.tsx                # Conferma: prevendita da Supabase + pass con QR
   api/paypal/create-order/route.ts  # Creazione ordine PayPal (10 EUR)
